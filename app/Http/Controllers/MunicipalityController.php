@@ -22,7 +22,7 @@ class MunicipalityController extends Controller
             ->orderBy('name')
             ->paginate(50);
 
-        return Inertia::render('Municipalities/Index', [
+        return Inertia::render('municipalities/Index', [
             'municipalities' => $municipalities,
             'provinces' => Province::query()->orderBy('name')->get(),
             'types' => MunicipalityType::query()->orderBy('name')->get(),
@@ -37,7 +37,7 @@ class MunicipalityController extends Controller
             'newsSources' => fn ($q) => $q->active()->orderBy('name'),
         ]);
 
-        return Inertia::render('Municipalities/Show', [
+        return Inertia::render('municipalities/Show', [
             'municipality' => $municipality,
         ]);
     }
