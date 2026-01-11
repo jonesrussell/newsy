@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MunicipalityController;
+use App\Http\Controllers\NewsSourceController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Laravel\Fortify\Features;
@@ -16,5 +17,6 @@ Route::get('dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::resource('municipalities', MunicipalityController::class)->only(['index', 'show']);
+Route::resource('news-sources', NewsSourceController::class)->only(['index', 'show']);
 
 require __DIR__.'/settings.php';
